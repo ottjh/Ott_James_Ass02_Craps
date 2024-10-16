@@ -20,16 +20,19 @@ public class Main
         Random rnd = new Random();
         Scanner in = new Scanner(System.in);
 
-        System.out.println("Welcome to the game of Craps");
+        System.out.println("\nWelcome to the game of Craps.");
 
         //Now to start the game
         do {
             gameOver = false;
             do {
+                //Here we need to reset the point value and get the die values started.
                 playerPoint = 0;
                 die1 = rnd.nextInt(6) + 1;
                 die2 = rnd.nextInt(6) + 1;
                 dieSum = die1 + die2;
+
+                System.out.println("----------------------------");
                 if (dieSum == 2 || dieSum == 3 || dieSum == 12)
                 {
                     System.out.println("You have rolled: " + dieSum +". You have crapped out and lost.");
@@ -45,7 +48,6 @@ public class Main
                     playerPoint = dieSum;
                     System.out.println("You have rolled: " + dieSum + ". You are now trying to hit it to win.");
                     do {
-                        System.out.println("");
                         die1 = rnd.nextInt(6) + 1;
                         die2 = rnd.nextInt(6) + 1;
                         dieSum = die1 + die2;
@@ -62,13 +64,13 @@ public class Main
                         }
                         else
                         {
-                            System.out.println("You rolled a: " + die1 + " and a " + die2 + " for a sum of" + dieSum + ". \n You are still trying for the point.");
+                            System.out.println("You rolled a: " + die1 + " and a " + die2 + " for a sum of " + dieSum + ". \nYou are still trying for the point.");
                         }
                     } while (!gameOver);
                 }
 
             } while (!gameOver);
-
+            System.out.println("----------------------------");
             System.out.print("If you would like to quit, enter [Q]. Otherwise we will play again: ");
             playerDone = in.nextLine();
         } while (!playerDone.equalsIgnoreCase("Q"));
